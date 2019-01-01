@@ -13,9 +13,10 @@ logger.setLevel(logging.INFO)
 
 # Slack の設定
 SLACK_POST_URL = os.environ['SlackWebhookUrl']
-SLACK_CHANNEL = 'Notification'
+SLACK_CHANNEL_NAME = os.environ['SlackChannelName']
+AWS_ACCOUNT_NAME = os.environ['AwsAccountName']
 
-response = boto3.client('cloudwatch', region_name='ap-northeast-1')
+response = boto3.client('cloudwatch', region_name='us-east-1')
 
 get_metric_statistics = response.get_metric_statistics(
     Namespace='AWS/Billing',
@@ -52,7 +53,9 @@ def lambda_handler(event, context):
 
     # SlackにPOSTする内容をセット
     slack_message = {
-        'channel': SLACK_CHANNEL,
+        'channel': SLACK_CHANNEL_NAME,
+        'username': AWS_ACCOUNT_NAME,
+        'icon_emoji': ':money_with_wings:',
         "attachments": [content],
     }
 

@@ -5,6 +5,8 @@ Parameters:
     Type: String
   SlackChannelName:
     Type: String
+  AwsAccountName:
+    Type: String
 
 Resources:
   SlackAwsBillingNotification:
@@ -23,8 +25,13 @@ Resources:
       Policies:
         - AWSLambdaExecute
         - CloudWatchLogsFullAccess
+        - CloudWatchReadOnlyAccess
       Environment:
         Variables:
           TZ: 'Asia/Tokyo'
           SlackWebhookUrl:
             Ref: SlackWebhookUrl
+          SlackChannelName:
+            Ref: SlackChannelName
+          AwsAccountName:
+            Ref: AwsAccountName
