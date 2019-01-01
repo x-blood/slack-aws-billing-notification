@@ -1,0 +1,2 @@
+# slack-aws-billing-notification
+awsの利用料金をデイリーでSlackに通知するスクリプト
