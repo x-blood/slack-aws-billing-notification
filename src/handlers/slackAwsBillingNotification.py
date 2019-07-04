@@ -43,7 +43,7 @@ def build_message(cost):
     else:
         color = "good"    #green
 
-    text = "%sまでのAWSの料金は、$%sです。" % (date, cost)
+    text = "%sまでのAWSの利用料金は、$%sです。" % (date, cost)
 
     atachements = {"text":text,"color":color}
     return atachements
