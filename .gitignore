@@ -7,3 +7,6 @@ template-output.yml
 
 # python
 myvenv
+
+# node
+node_modules
