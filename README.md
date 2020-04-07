@@ -5,9 +5,8 @@ awsの利用料金をデイリーでSlackに通知するスクリプト
 
 ## venv
 ```
-cd src/handlers/
-python3 -m venv myvenv
-source ./myvenv/bin/activate
+python -m venv myvenv
+make venv_activate
 ```
 
 ## 必要なパッケージの取得
