@@ -10,6 +10,7 @@ provider:
   stage: ops
   region: ap-northeast-1
   environment:
+    TZ: 'Asia/Tokyo'
     SLACK_AWS_BILLING_NOTIFICATION_WEB_HOOK_URL: ${ssm:/slack-aws-billing-notification/web-hook-url}
     SLACK_AWS_BILLING_NOTIFICATION_CHANNEL_NAME: ${ssm:/slack-aws-billing-notification/channel-name}
     SLACK_AWS_BILLING_NOTIFICATION_ACCOUNT_NAME: ${ssm:/slack-aws-billing-notification/account-name}
