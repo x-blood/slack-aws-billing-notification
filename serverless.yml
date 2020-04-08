@@ -27,7 +27,7 @@ custom:
 
 functions:
   function:
-    handler: src/slack_aws_billing_notification.py
+    handler: src/slack_aws_billing_notification.lambda_handler
     timeout: 900
     events:
       - schedule:
