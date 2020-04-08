@@ -22,3 +22,8 @@ npm install -g serverless
 npm install --save serverless-python-requirements
 npm install --save serverless-pseudo-parameters
 ```
+
+## Deploy
+```
+make deploy PROFILE=${AWS_PROFILE_NAME}
+```
