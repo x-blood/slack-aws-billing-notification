@@ -10,3 +10,4 @@ myvenv
 
 # node
 node_modules
+.serverless
