@@ -1,27 +1,29 @@
 # slack-aws-billing-notification
 awsの利用料金をデイリーでSlackに通知するスクリプト
 
-# Setup
+## Setup
 
-## venv
+### 1. venv
 ```
-cd src/handlers/
-python3 -m venv myvenv
-source ./myvenv/bin/activate
+python -m venv myvenv
+make venv_activate
 ```
 
-## 必要なパッケージの取得
+### 2. 必要なパッケージの取得
 ```
 # venvをアクティベートした後で
-pip install -r requirements.txt
+make pip_install
 ```
 
-## 利用する環境変数
-- SLACK_AWS_BILLING_NOTIFICATION_PROFILE
-    - AWS CLIのPROFILE名を指定
-- SLACK_XBLOOD_WEBHOOK_URL
-    - SlackのWebhook URLを指定
-- SLACK_AWS_BILLING_NOTIFICATION_CHANNEL_NAME
-    - Slackのチャンネル名を指定
-- SLACK_AWS_BILLING_NOTIFICATION_ACCOUNT_NAME
-    - Slackに表示するAWSアカウント名を指定(英語推奨)
+## 3. Serverless Framework
+```
+# node v10.18.0以上
+npm install -g serverless
+npm install --save serverless-python-requirements
+npm install --save serverless-pseudo-parameters
+```
+
+## Deploy
+```
+make deploy PROFILE=${AWS_PROFILE_NAME}
+```

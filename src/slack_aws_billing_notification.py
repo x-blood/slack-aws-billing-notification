@@ -12,9 +12,9 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 # Slack の設定
-SLACK_POST_URL = os.environ['SlackWebhookUrl']
-SLACK_CHANNEL_NAME = os.environ['SlackChannelName']
-AWS_ACCOUNT_NAME = os.environ['AwsAccountName']
+SLACK_POST_URL = os.environ['SLACK_AWS_BILLING_NOTIFICATION_WEB_HOOK_URL']
+SLACK_CHANNEL_NAME = os.environ['SLACK_AWS_BILLING_NOTIFICATION_CHANNEL_NAME']
+AWS_ACCOUNT_NAME = os.environ['SLACK_AWS_BILLING_NOTIFICATION_ACCOUNT_NAME']
 
 response = boto3.client('cloudwatch', region_name='us-east-1')
 

@@ -1,0 +1,36 @@
+service: slack-aws-billing-notification
+
+plugins:
+  - serverless-python-requirements
+  - serverless-pseudo-parameters
+
+provider:
+  name: aws
+  runtime: python3.7
+  stage: ops
+  region: ap-northeast-1
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "logs:*"
+        - "cloudwatch:*"
+      Resource: "*"
+  environment:
+    TZ: 'Asia/Tokyo'
+    SLACK_AWS_BILLING_NOTIFICATION_WEB_HOOK_URL: ${ssm:/slack-aws-billing-notification/web-hook-url}
+    SLACK_AWS_BILLING_NOTIFICATION_CHANNEL_NAME: ${ssm:/slack-aws-billing-notification/channel-name}
+    SLACK_AWS_BILLING_NOTIFICATION_ACCOUNT_NAME: ${ssm:/slack-aws-billing-notification/account-name}
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+
+functions:
+  function:
+    handler: src/slack_aws_billing_notification.lambda_handler
+    timeout: 900
+    events:
+      - schedule:
+          name: 'slack-aws-billing-notification'
+          rate: cron(0 0 * * ? *)
+          enabled: true

@@ -1,3 +1,13 @@
 src/handlers/myvenv
 package.zip
 template-output.yml
+
+# idea
+.idea
+
+# python
+myvenv
+
+# node
+node_modules
+.serverless
