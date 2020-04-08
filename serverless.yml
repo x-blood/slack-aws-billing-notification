@@ -20,7 +20,7 @@ custom:
     dockerizePip: true
 
 functions:
-  files:
+  function:
     handler: src/slack_aws_billing_notification.py
     timeout: 900
     events:
