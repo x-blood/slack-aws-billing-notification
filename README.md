@@ -2,7 +2,7 @@
 awsの利用料金をSlackに毎日通知するためのサーバーレスアプリケーション
 
 ## 通知のサンプル
-
+![image](https://user-images.githubusercontent.com/8668892/138143541-9efcb442-3af8-4d9b-9005-08d8bcca7c32.png)
 
 ## Setup
 セットアップ方法を記す
